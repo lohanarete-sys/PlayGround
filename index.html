@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#f5f0e5">
+  <title>Rythme — Le jeu du cube</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Accueil Rythme"><span class="brand-mark">R</span><span>rythme<span class="brand-dot">.</span></span></a>
+      <div class="top-meta"><span class="status-dot"></span><span>UN JEU DE RÉFLEXES</span></div>
+      <button class="sound-button" id="soundToggle" aria-label="Activer le son"><span class="sound-icon">♪</span><span class="sound-label">SON OFF</span></button>
+    </header>
+
+    <section class="screen menu-screen" id="menuScreen">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> SAUTE AU BON MOMENT</p>
+        <h1>Le rythme<br>est <span>ton terrain.</span></h1>
+        <p class="intro">Un cube. Des pics. Et toi, juste à temps.<br>Saute en cadence et va le plus loin possible.</p>
+        <div class="hero-actions"><button class="primary-button" id="playButton"><span>JOUER</span><span class="button-arrow">↗</span></button><span class="controls-hint">ESPACE / TOUCHE POUR SAUTER</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-sun"></div><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+        <div class="art-label label-top">TEMPO <b>124</b></div><div class="art-label label-side">01 — 21</div>
+        <div class="art-platform"></div><div class="art-spike spike-a"></div><div class="art-spike spike-b"></div>
+        <div class="art-cube"><i></i></div><div class="art-shadow"></div>
+        <div class="art-beat beat-one"></div><div class="art-beat beat-two"></div><div class="art-beat beat-three"></div>
+      </div>
+      <section class="level-section" id="levelSection">
+        <div class="section-heading"><div><p class="eyebrow">CHOISIS TON PARCOURS</p><h2>Les niveaux <span>01—21</span></h2></div><span class="progress-label" id="progressLabel">0 / 21 TERMINÉS</span></div>
+        <div class="level-grid" id="levelGrid"></div>
+      </section>
+      <footer class="menu-footer"><span>FAIT POUR JOUER, PARTOUT.</span><span>✳︎ TAP. SAUTE. RECOMMENCE.</span></footer>
+    </section>
+
+    <section class="screen game-screen hidden" id="gameScreen">
+      <div class="game-topbar"><button class="icon-button" id="backButton" aria-label="Retour au menu">←</button><div class="level-heading"><span class="eyebrow">NIVEAU <b id="levelNumber">01</b></span><strong id="levelName">Premiers pas</strong></div><div class="game-score"><span id="progressPercent">0%</span><div class="progress-track"><i id="progressBar"></i></div></div><button class="icon-button restart-button" id="restartButton" aria-label="Recommencer">↻</button></div>
+      <div class="game-stage" id="gameStage"><canvas id="gameCanvas" aria-label="Jeu de plateforme rythmique"></canvas>
+        <div class="stage-tip" id="stageTip"><span class="tip-key">ESPACE</span> OU TOUCHE POUR SAUTER</div>
+        <div class="game-overlay hidden" id="gameOverlay"><div class="result-card"><div class="result-kicker" id="resultKicker">BIEN JOUÉ</div><div class="result-icon" id="resultIcon">✦</div><h2 id="resultTitle">Niveau terminé !</h2><p id="resultText">Le rythme est à toi.</p><div class="result-actions"><button class="primary-button" id="resultPrimary"><span>CONTINUER</span><span class="button-arrow">↗</span></button><button class="text-button" id="resultSecondary">REJOUER</button></div></div></div>
+      </div>
+      <div class="game-bottom"><span><i class="status-dot"></i> AVANCE AUTOMATIQUE</span><span>SAUTE <b>↗</b></span><span id="bestLabel">RECORD —</span></div>
+    </section>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
